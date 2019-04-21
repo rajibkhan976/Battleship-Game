@@ -8,7 +8,7 @@
   min-height: 430px;
 }
 
-.battleShipOpetions {
+.battleShipOptions {
   margin-top: 10%;
 }
 
@@ -72,5 +72,5 @@
 }
 
 .Destroyer {
-  background-color: red;
+  background-color: orange;
 }

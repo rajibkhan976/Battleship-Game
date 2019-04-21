@@ -15,6 +15,7 @@ export class PlayeroneComponent implements OnInit {
     'Submarine': 3,
     'Destroyer': 2
   };
+  playerOne: string = 'Player One Setup';
   typeOfBattleShip: string;
   sizeOfBattleShip: number;
   instructionOne: string;

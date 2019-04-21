@@ -8,76 +8,77 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class PlayertwoComponent implements OnInit {
 
-  battleShips: any = {
+  battleShipsPlayerTwo: any = {
     'Carrier':   5,
     'Frigate':   4,
     'Cruiser':   3,
     'Submarine': 3,
     'Destroyer': 2
   };
-  typeOfBattleShip: string;
-  sizeOfBattleShip: number;
-  instructionOne: string;
-  playerOneCarrierPosition: string[] = [];
-  playerOneFrigatePosition: string[] = [];
-  playerOneCruiserPosition: string[] = [];
-  playerOneSubmarinePosition: string[] = [];
-  playerOneDestroyerPosition: string[] = [];
+  playerTwo: string = 'Player Two Setup';
+  typeOfBattleShipPlayerTwo: string;
+  sizeOfBattleShipPlayerTwo: number;
+  instructionTwo: string;
+  playerTwoCarrierPosition: string[] = [];
+  playerTwoFrigatePosition: string[] = [];
+  playerTwoCruiserPosition: string[] = [];
+  playerTwoSubmarinePosition: string[] = [];
+  playerTwoDestroyerPosition: string[] = [];
 
   constructor(private route: ActivatedRoute, private router: Router) {
-    
+
   }
 
   getShipType () {
-    for (var shipType in this.battleShips) {
-      if (this.typeOfBattleShip === shipType) {
-        this.sizeOfBattleShip = this.battleShips[shipType];
-        this.instructionOne = 'You can position your ' + this.typeOfBattleShip + ' in ' + this.sizeOfBattleShip + ' different cells in the grid.';
+    for (var shipType in this.battleShipsPlayerTwo) {
+      if (this.typeOfBattleShipPlayerTwo === shipType) {
+        this.sizeOfBattleShipPlayerTwo = this.battleShipsPlayerTwo[shipType];
+        this.instructionTwo = 'You can position your ' + this.typeOfBattleShipPlayerTwo + ' in ' + this.sizeOfBattleShipPlayerTwo + ' different cells in the grid.';
       }
     }
   }
 
   positionShip (cellValue: string) {
-    if (this.typeOfBattleShip === 'Carrier') {
+    if (this.typeOfBattleShipPlayerTwo === 'Carrier') {
       for (var carrierPositionCounter = 0; carrierPositionCounter < 1; carrierPositionCounter++) {
-        if (this.playerOneCarrierPosition.length < 5 && !this.playerOneCarrierPosition.includes(cellValue)) {
-          this.playerOneCarrierPosition.push(cellValue);
+        if (this.playerTwoCarrierPosition.length < 5 && !this.playerTwoCarrierPosition.includes(cellValue)) {
+          this.playerTwoCarrierPosition.push(cellValue);
         } else {
           break;
         }
       }
     }
-    if (this.typeOfBattleShip === 'Frigate') {
+    if (this.typeOfBattleShipPlayerTwo === 'Frigate') {
       for (var frigatePositionCounter = 0; frigatePositionCounter < 1; frigatePositionCounter++) {
-        if (this.playerOneFrigatePosition.length < 4 && !this.playerOneFrigatePosition.includes(cellValue)) {
-          this.playerOneFrigatePosition.push(cellValue);
+        if (this.playerTwoFrigatePosition.length < 4 && !this.playerTwoFrigatePosition.includes(cellValue)) {
+          this.playerTwoFrigatePosition.push(cellValue);
         } else {
           break;
         }
       }
     }
-    if (this.typeOfBattleShip === 'Cruiser') {
+    if (this.typeOfBattleShipPlayerTwo === 'Cruiser') {
       for (var cruiserPositionCounter = 0; cruiserPositionCounter < 1; cruiserPositionCounter++) {
-        if (this.playerOneCruiserPosition.length < 3 && !this.playerOneCruiserPosition.includes(cellValue)) {
-          this.playerOneCruiserPosition.push(cellValue);
+        if (this.playerTwoCruiserPosition.length < 3 && !this.playerTwoCruiserPosition.includes(cellValue)) {
+          this.playerTwoCruiserPosition.push(cellValue);
         } else {
           break;
         }
       }
     }
-    if (this.typeOfBattleShip === 'Submarine') {
+    if (this.typeOfBattleShipPlayerTwo === 'Submarine') {
       for (var submarinePositionCounter = 0; submarinePositionCounter < 1; submarinePositionCounter++) {
-        if (this.playerOneSubmarinePosition.length < 3 && !this.playerOneSubmarinePosition.includes(cellValue)) {
-          this.playerOneSubmarinePosition.push(cellValue);
+        if (this.playerTwoSubmarinePosition.length < 3 && !this.playerTwoSubmarinePosition.includes(cellValue)) {
+          this.playerTwoSubmarinePosition.push(cellValue);
         } else {
           break;
         }
       }
     }
-    if (this.typeOfBattleShip === 'Destroyer') {
+    if (this.typeOfBattleShipPlayerTwo === 'Destroyer') {
       for (var destroyerPositionCounter = 0; destroyerPositionCounter < 1; destroyerPositionCounter++) {
-        if (this.playerOneDestroyerPosition.length < 2 && !this.playerOneDestroyerPosition.includes(cellValue)) {
-          this.playerOneDestroyerPosition.push(cellValue);
+        if (this.playerTwoDestroyerPosition.length < 2 && !this.playerTwoDestroyerPosition.includes(cellValue)) {
+          this.playerTwoDestroyerPosition.push(cellValue);
         } else {
           break;
         }
@@ -86,15 +87,15 @@ export class PlayertwoComponent implements OnInit {
   }
 
   setClass (cellPosition: string) {
-    if (this.playerOneCarrierPosition.includes(cellPosition)) {
+    if (this.playerTwoCarrierPosition.includes(cellPosition)) {
       return 'Carrier';
-    } else if (this.playerOneFrigatePosition.includes(cellPosition)) {
+    } else if (this.playerTwoFrigatePosition.includes(cellPosition)) {
       return 'Frigate';
-    } else if (this.playerOneCruiserPosition.includes(cellPosition)) {
+    } else if (this.playerTwoCruiserPosition.includes(cellPosition)) {
       return 'Cruiser';
-    } else if (this.playerOneSubmarinePosition.includes(cellPosition)) {
+    } else if (this.playerTwoSubmarinePosition.includes(cellPosition)) {
       return 'Submarine';
-    } else if (this.playerOneDestroyerPosition.includes(cellPosition)) {
+    } else if (this.playerTwoDestroyerPosition.includes(cellPosition)) {
       return 'Destroyer';
     } else {
       return 'Noclass';
