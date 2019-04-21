@@ -9,19 +9,27 @@ export class DashboardComponent implements OnInit {
 
   playerOne: string = 'Player One Grid';
   playerTwo: string = 'Player Two Grid';
+  firstPlayerStrike: string;
+  secondPlayerStrike: string;
+  @Input() playerOneHits: string[];
+  @Input() playerTwoHits: string[];
+  @Output() firstPlayerStrikeCheck = new EventEmitter<string>();
+  @Output() secondPlayerStrikeCheck = new EventEmitter<string>();
 
   constructor() { }
 
   playerOneStrike (gridOneCellValue: string) {
-    alert(gridOneCellValue);
+    this.firstPlayerStrike = gridOneCellValue;
+    this.firstPlayerStrikeCheck.emit(this.firstPlayerStrike);
   }
 
   playerTwoStrike (gridTwoCellValue: string) {
-    alert(gridTwoCellValue);
+    this.secondPlayerStrike = gridTwoCellValue;
+    this.secondPlayerStrikeCheck.emit(this.secondPlayerStrike);
   }
 
   playerOneStrikeSignal (playerOneGridStrikeValue: string) {
-    if (playerOneGridStrikeValue === '1A') {
+    if (this.playerOneHits.includes(playerOneGridStrikeValue)) {
       return 'hit';
     } else {
       return 'miss';
@@ -29,7 +37,7 @@ export class DashboardComponent implements OnInit {
   }
 
   playerTwoStrikeSignal (playerTwoGridStrikeValue: string) {
-    if (playerTwoGridStrikeValue === '1A') {
+    if (this.playerTwoHits.includes(playerTwoGridStrikeValue)) {
       return 'hit';
     } else {
       return 'miss';

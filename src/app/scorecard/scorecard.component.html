@@ -1,3 +1,15 @@
-<div class="jumbotron">
-  <h3>Scorecard</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="jumbotron">
+        <h3>Scorecard</h3>
+      </div>
+    </div>
+  </div>
+  <app-dashboard
+  (firstPlayerStrikeCheck)="checkSecondPlayerShipPosition ($event)"
+  (secondPlayerStrikeCheck)="checkFirstPlayerShipPosition ($event)"
+  [playerOneHits]="firstPlayerHit"
+  [playerTwoHits]="secondPlayerHit">
+  </app-dashboard>
 </div>
