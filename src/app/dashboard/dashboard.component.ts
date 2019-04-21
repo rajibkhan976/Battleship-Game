@@ -12,7 +12,9 @@ export class DashboardComponent implements OnInit {
   firstPlayerStrike: string;
   secondPlayerStrike: string;
   @Input() playerOneHits: string[];
+  @Input() playerOneMiss: string[];
   @Input() playerTwoHits: string[];
+  @Input() playerTwoMiss: string[];
   @Output() firstPlayerStrikeCheck = new EventEmitter<string>();
   @Output() secondPlayerStrikeCheck = new EventEmitter<string>();
 
@@ -31,16 +33,20 @@ export class DashboardComponent implements OnInit {
   playerOneStrikeSignal (playerOneGridStrikeValue: string) {
     if (this.playerOneHits.includes(playerOneGridStrikeValue)) {
       return 'hit';
-    } else {
+    } else if (this.playerOneMiss.includes(playerOneGridStrikeValue)) {
       return 'miss';
+    } else {
+      return 'noClass';
     }
   }
 
   playerTwoStrikeSignal (playerTwoGridStrikeValue: string) {
     if (this.playerTwoHits.includes(playerTwoGridStrikeValue)) {
       return 'hit';
-    } else {
+    } else if (this.playerTwoMiss.includes(playerTwoGridStrikeValue)) {
       return 'miss';
+    } else {
+      return 'noClass';
     }
   }
 
