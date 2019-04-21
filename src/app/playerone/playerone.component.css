@@ -55,22 +55,22 @@
   text-align: center;
 }
 
-.carrier {
+.Carrier {
   background-color: gray;
 }
 
-.frigate {
+.Frigate {
   background-color: teal;
 }
 
-.cruiser {
+.Cruiser {
   background-color: blue;
 }
 
-.submarine {
+.Submarine {
   background-color: black;
 }
 
-.destroyer {
+.Destroyer {
   background-color: red;
 }
