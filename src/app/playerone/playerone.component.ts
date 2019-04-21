@@ -24,7 +24,9 @@ export class PlayeroneComponent implements OnInit {
   playerOneSubmarinePosition: string[] = [];
   playerOneDestroyerPosition: string[] = [];
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router) {
+
+   }
 
   getShipType () {
     for (var shipType in this.battleShips) {
